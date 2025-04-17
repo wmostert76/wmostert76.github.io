@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Printing❤️Hearts</title>
+    <link rel="shortcut icon" href="/assets/LOGO PNG WITTE ACHTERGROND.png" type="image/x-icon"/>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="/assets/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Signika&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.min.js" defer></script>
+    <style>
+        /* Add hover effect for menu items */
+        .menu-item:hover, .menu-item.highlight {
+            background-color: #f56565; /* Change background color on hover */
+            color: white; /* Change text color on hover */
+            border-radius: 5px; /* Rounded corners */
+            padding: 10px; /* Padding */
+        }
+    </style>
+</head>
+<body class="bg-grey-light bg-opacity-75 md:text-5xl lg:text-xl">
+
+<div class="bg-white flex flex-col" x-data="{ menu: false }" style="--bg-opacity:0.1">
+
+    <div
+            x-cloak
+            x-show.transition="menu"
+            class="fixed top-0 z-50 left-0 h-screen text-5xl text-center pt-6 bg-opacity-75 text-white bg-black w-full flex-grow lg:flex lg:items-center lg:w-auto lg:block pt-6 lg:pt-0"
+            id="nav-content">
+        <button class="fixed top-0 right-0 m-4" @click.prevent="menu = ! menu">Sluiten</button>
+        <ul class="list-reset lg:flex justify-end flex-1 items-center">
+            <li class="menu-item">
+                <a class="inline-block text-grey-dark no-underline hover:text-grey-lighter hover:text-underline py-2 px-4"
+                   href="#reacties"
+                   @click="menu = ! menu">Reacties</a>
+            </li>            
+            <li class="menu-item">
+                <a class="inline-block text-grey-dark no-underline hover:text-grey-lighter hover:text-underline py-2 px-4"
+                   href="#informatie"
+                   @click="menu = ! menu">Informatie</a>
+            </li>
+            <li class="menu-item">
+                <a class="inline-block text-grey-dark no-underline hover:text-grey-lighter hover:text-underline py-2 px-4"
+                   href="#locatie"
+                   @click="menu = ! menu">Locatie</a>
+            </li>
+            <li class="menu-item">
+                <a class="inline-block text-grey-dark no-underline hover:text-grey-lighter hover:text-underline py-2 px-4"
+                   href="#programma"
+                   @click="menu = ! menu">Programma</a>
+            </li>
+            <li class="menu-item">
+                <a class="inline-block text-grey-dark no-underline hover:text-grey-lighter hover:text-underline py-2 px-4"
+                   href="#visie"
+                   @click="menu = ! menu">Visie</a>
+            </li>
+            <li class="menu-item">
+                <a class="inline-block text-grey-dark no-underline hover:text-grey-lighter hover:text-underline py-2 px-4"
+                   href="#folder"
+                   @click="menu = ! menu">Folder</a>
+            </li>
+            <li class="menu-item">
+                <a class="inline-block text-grey-dark no-underline hover:text-grey-lighter hover:text-underline py-2 px-4"
+                   href="#contact"
+                   @click="menu = ! menu">Contact</a>
+            </li>
+        </ul>
+    </div>
+
+    <nav class="z-10 bg-white fixed flex items-center justify-between w-full top-0 left-0 overflow-hidden">
+        <div class="flex items-center flex-no-shrink text-white mr-6">
+            <a class="text-white no-underline hover:text-white hover:no-underline" href="https://www.printinghearts.nl">
+                <i class="em em-grinning"></i>
+                <span class="flex ml-1 mt-1 text-6xl">
+                        <span class="logo-text mr-2">Printing</span>
+                        <img src="assets/LOGO PNG TRANSPARANTE ACHTERGROND.png" class="h-24 object-cover"/>
+                        <span class="logo-text ml-1">Hearts</span>
+                    </span>
+            </a>
+        </div>
+
+        <div class="block lg:hidden flex items-center">
+            <a class="inline-block text-grey-dark no-underline hover:text-grey-500 hover:text-underline py-2 px-2 menu-item highlight"
+               href="https://docs.google.com/forms/d/e/1FAIpQLSfL-f755tZWWE_c66tXEYHmdnsblob1Jf5vKJBPmudIX3FqjA/closedform"
+               target="_blank">Aanmelden</a>
+            <button id="nav-toggle"
+                    @click.prevent="menu = ! menu"
+                    class="flex items-center px-3 py-2 border rounded text-grey border-grey-dark hover:text-white hover:border-white ml-2">
+                <svg class="fill-current h-10" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>
+                    Menu</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="hidden lg:flex items-center">
+            <ul class="list-reset flex justify-end flex-1 items-center">
+                <li class="menu-item highlight">
+                    <a class="inline-block text-grey-dark no-underline hover:text-grey-500 hover:text-underline py-2 px-2"
+                       href="https://docs.google.com/forms/d/e/1FAIpQLSfL-f755tZWWE_c66tXEYHmdnsblob1Jf5vKJBPmudIX3FqjA/closedform"
+                       target="_blank">Aanmelden</a>
+                </li>
+                <li class="menu-item">
+                    <a class="inline-block text-grey-dark no-underline hover:text-grey-500 hover:text-underline py-2 px-2"
+                       href="#reacties"
+                    >Reacties</a>
+                </li>                
+                <li class="menu-item">
+                    <a class="inline-block text-grey-dark no-underline hover:text-grey-500 hover:text-underline py-2 px-2"
+                        href="#informatie"
+                    >Informatie</a> 
+                </li>
+                <li class="menu-item">
+                    <a class="inline-block text-grey-dark no-underline hover:text-grey-500 hover:text-underline py-2 px-2"
+                        href="#locatie"
+                    >Locatie</a>
+                </li>
+                <li class="menu-item">
+                    <a class="inline-block text-grey-dark no-underline hover:text-grey-500 hover:text-underline py-2 px-2"
+                        href="#programma"
+                    >Programma</a>
+                </li>
+                <li class="menu-item">
+                    <a class="inline-block text-grey-dark no-underline hover:text-grey-500 hover:text-underline py-2 px-2"
+                       href="#visie"
+                    >Visie</a>
+                </li>
+                <li class="menu-item">
+                    <a class="inline-block text-grey-dark no-underline hover:text-grey-500 hover:text-underline py-2 px-2"
+                       href="#folder"
+                    >Folder</a>
+                </li>            
+                <li class="menu-item">
+                    <a class="inline-block text-grey-dark no-underline hover:text-grey-500 hover:text-underline py-2 px-2"
+                       href="#contact"
+                    >Contact</a>
+                </li>              
+            </ul>
+        </div>
+    </nav>
+
+    <!--Container-->
+    <main style="margin-top: 100px; max-width: 1080px;" class="flex-1 overflow-y-auto mx-auto z-0 px-4 lg:px-6 py-4">
+
+        <a name="welkom"></a>
+        <div class="bg-red-700 text-6xl lg:text-2xl py-2 px-3 text-white uppercase w-auto rounded mb-4">Welkom</div>
+        <div class="mb-4">
+            Wat leuk dat je onze website komt bezoeken! Naast dat je je kunt aanmelden voor het toerustingsweekend, vind je hier
+            meer achtergrond informatie over onze mooie organisatie, de visie, het programma en de locatie.
+        </div>
+
+        <a name="aanmelden"></a>
+        <div class="bg-red-700 text-6xl lg:text-2xl py-2 px-3 text-white uppercase w-auto rounded mb-4">Aanmelden</div>
+        
+        <div class="lg:py-4 lg:px-6">
+            <div class="border-gray-600 object-center inline-block border bg-white bg-opacity-50 p-3 my-2 w-full lg:w-1/2">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfL-f755tZWWE_c66tXEYHmdnsblob1Jf5vKJBPmudIX3FqjA/viewform"><img class="object-cover object-center bg-gray-400 w-full" src="/assets/thema.png"></a>
+            </div>
+        
+            <div class="mb-0">Klik hieronder om naar het aanmeldingsformulier te gaan:</div>
+            <div class="mb-2 font-bold"><a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSfL-f755tZWWE_c66tXEYHmdnsblob1Jf5vKJBPmudIX3FqjA/viewform">Aanmeldformulier</a>
+            </div>
+            <div class="mb-0">Heb je een vraag of een opmerking? Klik dan hieronder om naar het contactformulier te gaan:</div> 
+            <div class="mb-2 font-bold"><a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeenmvJJ_1sKlA35jZUmFtJFiR5K1rWLR3yUfi9Rsm8LPdZ7g/viewform">Contactformulier</a>
+            </div>
+        </div>
+            
+        <a name="reacties"></a>
+        <div class="bg-red-700 text-6xl lg:text-2xl py-2 px-3 text-white uppercase w-auto rounded mb-4">Reacties</div>
+
+        <div class="mt-1 mb-2 object-center">
+            <img src="/assets/horizontalelijn.svg">
+        </div>
+        
+        <div class="grid grid-cols-2 gap-4 lg:py-4 lg:px-6">         
+        
+            <div class="border-2 border-red-700 rounded-lg shadow-xl p-4">
+            <div class="mb-0 italic">
+                <span class="font-bold">Anne:</span> "Afgelopen weekend mocht ik een weekend met 
+                Printing❤️Hearts meemaken. Ik heb God heel dichtbij 
+                ervaren, heel veel knipogen van Hem gekregen. Wat ik zo 
+                bijzonder vind is hoe snel er een enorm veilige setting 
+                was en hoe verbonden ik me voelde met iedereen. Heerlijk 
+                over kerkmuren heen! Ik kon mezelf zijn, ik kan wel zeggen: 
+                ik heb mezelf en hoe ik bedoeld ben, weer een beetje teruggevonden. 
+                De strijd kwam na het weekend, dat is heel vervelend, 
+                maar ook een teken dat ik heel dichtbij God ben! En 
+                daar wil ik blijven, in Zijn schuilplaats, onder Zijn 
+                vleugels, geborgen in Zijn tent❤️"
+            </div>
+            </div>
+
+            <div class="border-2 border-red-700 rounded-lg shadow-xl p-4">
+            <div class="mb-0 italic">
+                <span class="font-bold">Anoniem:</span> "Het afgelopen Printing❤️Hearts weekend ging over 'geborgenheid'. 
+                Ik vond het een heel intiem onderwerp en ik heb God 
+                van heel dichtbij ervaren. Het heeft mij geraakt; 
+                Gods spreken in de stilte met het Woord geopend. 
+                Om samen met mijn broers en zussen een weekend op te 
+                trekken in en rondom het klooster was werkelijk sprookjesachtig, 
+                maar toch realiteit. Gods Geest heeft ons de weg gewezen 
+                naar het leven vanuit verbondenheid met Hem en met elkaar."
+            </div>
+            </div>
+
+            <div class="border-2 border-red-700 rounded-lg shadow-xl p-4">
+            <div class="mb-0 italic">
+                <span class="font-bold">Paul:</span> "Wat een Printing❤️Hearts weekend zo extra bijzonder maakt: 
+                Het heeft alle ingrediënten van een mooi weekend met mooie 
+                broeders en zusters. Dit geeft bijzondere herinneringen. 
+                De extra waarde zit voor mij in het bewust maken, ruimte
+                geven en de begeleiding van mijn eigen relatie met God. 
+                Ik kreeg tools, die ik mee heb genomen naar huis en wat 
+                mij van binnen heeft veranderd. Er is weer een vlam opgelaaid in mijn hart."
+            </div>
+            </div>
+
+            <div class="border-2 border-red-700 rounded-lg shadow-xl p-4">
+            <div class="mb-0 italic">
+                <span class="font-bold">Govert-Jan:</span> "Een Printing❤️Hearts weekend ervaar ik elke keer weer als 
+                een cadeau van God. Van te voren denk ik dat ik eigenlijk 
+                voor Hem tijd moet vrij maken. Het kost tijd en inspanning 
+                om alles te regelen en het voelt soms ook een beetje als 
+                opoffering voor Hem. Het tegenovergestelde is echter waar. 
+                In de rust van het weekend ervaar ik steeds meer dat het weekend 
+                een geschenk uit de Hemel is. Hij brengt me in de rust. 
+                Hij verkwikt mijn ziel. Hij geeft ontspanning. Hij raakt mij 
+                aan. Hij spreekt. Hij herstelt. Kortom: echt een cadeau 
+                van God. Ik denk dat God iedereen dat gunt en wil geven. Blessings!"
+            </div>
+            </div>
+            <div class="border-2 border-red-700 rounded-lg shadow-xl p-4">
+            <div class="mb-0 italic">
+                <span class="font-bold">Rutger:</span> "Wat fijn om dit Printing❤️Hearts weekend meegemaakt te hebben! Ik KWAM moegestreden 
+                en overladen, ZAG en proefde van rust en OVERWON door niet langer 
+                alleen maar met Hem de strijd te herpakken (Woorden van een grote 
+                strijder: Julius Ceasar maar dan vanuit een christelijk perspectief)."
+            </div>
+            </div>
+            
+        </div>        
+
+        <div class="mt-1 mb-4 object-center">
+            <img src="/assets/horizontalelijn.svg">
+        </div>
+
+        
+        <a name="informatie"></a>
+        <div class="bg-red-700 text-6xl lg:text-2xl py-2 px-3 text-white uppercase w-auto rounded mb-2">Voor wie?</div>
+        <div class="lg:py-4 lg:px-6 mb-3">
+            <div class="mb-3">
+                We willen samen op zoek gaan naar datgene, wat Gods
+                wil is: terug naar de eerste Liefde, de hartsrelatie
+                tussen Hem en mensen herstellen. Zoals God met Adam
+                en Henoch wandelde, zo wil Hij dat ook met ons doen.
+                Hij wil een relatie van aangezicht tot aangezicht met
+                ons hebben, in Zijn rust en vrede, die ons menselijke
+                verstand te boven gaat. Dit willen we zoeken aan
+                de hand van een thema of sleutelvers vanuit de Bijbel.
+            </div>
+            <div class="mb-3">
+                Naast gebed, onderwijs en meditatieve momenten,
+                vinden we het belangrijk dat iedereen de ruimte krijgt
+                voor een stukje eigen bezinning in de vorm van stille
+                tijd, waarin deelnemers kunnen Bijbellezen, wandelen,
+                tekenen of schrijven. Dit proces begeleiden we door gesprekken 
+                met één van de echtparen. Deze gesprekken
+                worden ingepland. Natuurlijk kunnen deelnemers ook
+                altijd buiten de geplande gesprekken bij de echtparen
+                terecht met hun vragen.
+            </div>
+            <div>
+                Het is voor iedereen vanaf 21 jaar, die tijd apart wil zetten
+                voor God en wil groeien in geloof en relatie met
+                Hem. We willen dit graag doen met maximaal 10
+                deelnemers.
+            </div>
+        </div>  
+        <a name="locatie"></a>   
+        <div class="bg-red-700 text-6xl lg:text-2xl py-2 px-3 text-white uppercase w-auto rounded mb-2">Locatie</div>
+        <div class="lg:py-4 lg:px-6">
+            <div><a href="https://emmausbezinningscentrum.nl/" class="font-bold">Bezinningscentrum Emmaus</a></div>
+            <div><a href="https://goo.gl/maps/oruMenNK3i7HQ8e8A">Udenhoutseweg 15</a></div>
+            <div><a href="https://goo.gl/maps/oruMenNK3i7HQ8e8A">5268 CG Helvoirt</a></div>
+            <div class="border-gray-600 inline-block border bg-white bg-opacity-50 p-3 my-2 mb-2 w-full lg:w-1/2">
+            <img class="object-cover object-center bg-gray-400 w-full" src="/assets/huis.jpg">
+            </div>
+        </div>
+
+        <a name="programma"></a>
+        <div class="bg-red-700 text-6xl lg:text-2xl py-2 px-3 text-white uppercase w-auto rounded mb-2">Programma</div>
+        <div class="mb-4 lg:py-4 lg:px-6">
+            <div class="font-bold">Vrijdagavond</div>
+            <div class="mb-2">Na de broodmaaltijd hebben we een gezamenlijk programma
+                met een creatief moment als inleiding op het thema.
+            </div>
+            <div class="font-bold">Zaterdag</div>
+            <div class="mb-2">Na het ontbijt is er een inleiding op het thema. Na de overdenking is er ruimte voor een begeleidingsgesprek. Daarna heb je tijd om op je eigen manier God te zoeken. Vervolgens eten we met elkaar een warme maaltijd. Na wat tijd om te ontspannen, gaan we een korte wandeling maken waarbij we een Bijbeltekst gaan overdenken. 's Avonds hebben we een creatieve verwerking van het thema.
+            </div>
+            <div class="font-bold">Zondag</div>
+            <div class="mb-0">Na het ontbijt hebben we weer tijd om God te zoeken en is er ruimte voor de begeleidingsgesprekken. Aan het einde van de ochtend hebben we met elkaar een meditatief moment. Nadat we weer kunnen genieten van een warme maaltijd met elkaar, hebben we een samenkomst met getuigenissen. Daarna sluiten we het weekend samen af.
+            </div>
+        </div>
+
+        <a name="kosten"></a>
+        <div class="bg-red-700 text-6xl lg:text-2xl py-1 lg:py-2 px-2 lg:px-3 text-white uppercase w-auto rounded mb-2">Kosten</div>
+        <div class="lg:py-2 lg:px-6">
+            De kosten zijn 
+            <A class="font-bold">€160,- euro p.p.</A>.
+            Hiervoor krijg je een eigen slaapkamer,
+            koffie / thee / limonade en drie maaltijden per
+            dag. De warme maaltijd wordt 's middags geserveerd.
+            Om de prijzen laag te houden, doen we met
+            elkaar een aantal corvee taken. 
+        </div>
+        <div class="lg:py-2 lg:px-6">
+            Wanneer dit bedrag te hoog voor je is, dan mag je
+            daarover contact met ons opnemen. We gaan dan zoeken naar een oplossing. 
+            Je kunt ons bereiken via het contactformulier:
+            <div class="mb-2 font-bold"><a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeenmvJJ_1sKlA35jZUmFtJFiR5K1rWLR3yUfi9Rsm8LPdZ7g/viewform">Contactformulier</a>
+            </div>
+        </div>
+
+        <a name="visie"></a>
+        <div class="bg-red-700 text-6xl lg:text-2xl py-2 px-3 text-white uppercase w-auto rounded mb-4">Visie</div>
+        <div class="mt-1 mb-0 object-center">
+            <img src="/assets/horizontalelijn.svg">
+        </div>
+        <div class="lg:px-6 mb-4">
+            <span class="font-bold">Werner:</span> "Printing❤️Hearts is spontaan ontstaan tussen
+            God en mij op één van mijn stilteretraites in Helvoirt.
+            Tijdens een wandeling in de ochtendluwte werd ik in
+            gedachten meegenomen naar een situatie van enkele
+            jaren geleden, waarin ik een profetie van God kreeg.
+            Hij zei mij toen, dat ik voor mijn 42e levensjaar iets
+            nieuws zou mogen gaan doen en Hij gaf daarbij de
+            woorden: Printing Hearts.
+            Toen ik weer thuis was, heb ik dit mooie moment met
+            Hanneke gedeeld en zij was meteen enthousiast. Daarna
+            bleek dat ook Piet en Hetty het verlangen hadden om
+            een stukje met mensen mee te mogen wandelen. We
+            zijn dankbaar dat we deze weekenden met elkaar mogen
+            organiseren."
+        </div>
+        <div class="lg:px-6 mb-1">
+            "God liet mij een beeld zien van een Hartenprinter, waarbij
+            een 3D printer een levend, vleselijk hart uitprintte en
+            geen stenen hart.
+            Dit naar aanleiding van de Bijbeltekst uit Ez. 36:26:
+            "Het hart van steen zal Ik uit uw lichaam verwijderen
+            en Ik zal u een hart van vlees geven." God zoekt
+            ons en wil graag een relatie van hart tot hart met
+            mensen. Deze hartsrelatie is helaas versteend
+            (verstoord) geraakt. Het weekend heeft een interkerkelijk
+            karakter: samen, in eenheid als één lichaam,
+            in de gemeenschap van Christus over kerkmuren heen,
+            God en elkaar ontmoeten."
+        </div>
+ 
+        <div class="mt-1 object-center">
+            <img src="/assets/horizontalelijn.svg">
+        </div>
+
+        <a name="wie-zijn-wij"></a>
+        <div class="bg-red-700 text-6xl lg:text-2xl py-2 px-3 text-white uppercase w-auto rounded mb-4">Wie zijn wij?</div>
+        <div class="mb-4 lg:py-4 lg:px-6">
+        
+        
+            <div class="font-bold">WERNER & HANNEKE</div>
+
+            <div class="mb-4">"Wij zijn begin 40 en hebben twee mooie zoons in de
+                tienerleeftijd, Joran en Manuel. We zijn allebei
+                opgegroeid met het geloof. Tijdens ons huwelijk is ons
+                geloof, met vallen en opstaan, verdiept.
+                En mochten we bouwen aan een persoonlijke relatie
+                met onze Hemelse Vader. We vinden het mooi om te
+                mogen dienen in Zijn Koninkrijk, en onze ervaring is dat
+                we daar zelf veel van leren en dat het ons ook opbouwt.
+                Zo mochten we een gebedshuis leiden en weekenden
+                voor jongeren organiseren, die willen groeien in geloof.
+                Via Landgut Engelsbach (een christelijk vakantiepark
+                in Duitsland) hebben we veel mensen ontmoet waar we
+                mee mee mochten wandelen en we zijn dankbaar dat
+                God ook mensen geeft die met ons mee willen wandelen.
+                Ons verlangen is om mensen te stimuleren een relatie
+                met Hem op te bouwen."
+            </div>
+        
+            <div class="font-bold">PIET & HETTY</div>
+            <div>"Het is al meer dan 30 jaar geleden dat wij een keuze
+                voor de Heer Jezus mochten maken en ons leven als
+                christen begon. We zijn nog altijd erg blij en dankbaar
+                voor Zijn ingrijpen in ons leven. We hebben al veel van
+                Hem mogen leren en we vinden het fijn om deze lessen
+                met anderen te delen, zodat ook zij de Heer Jezus
+                beter leren kennen en zij meer inzicht krijgen in de
+                Bijbel. Dit kan zijn door gesprekken, spreekbeurten,
+                door het geven van Bijbelstudies of door persoonlijke
+                contacten. Het is ons verlangen dat mensen Gods Woord
+                steeds beter gaan begrijpen, zowel met hun verstand als
+                met hun gevoel, zodat dit een uitwerking in hun leven
+                krijgt.
+                Wij zijn rond de 60 jaar oud, maar nog altijd enthousiast
+                in ons geloof. Onze vier kinderen zijn inmiddels
+                allemaal uit huis, maar we genieten van hen en van
+                de kleinkinderen. We zien er naar uit om jullie
+                te ontmoeten!"
+            </div>
+
+        </div>
+        <a name="folder"></a>
+        <div class="bg-red-700 text-6xl lg:text-2xl py-2 px-3 text-white uppercase w-auto rounded mb-4">Digitale Folder</div>
+        <div class="mt-4 mb-4 lg:py-2 lg:px-6">
+             Wilt u alles nog eens rustig nalezen? Download dan onze <A class="font-bold" href="https://www.printinghearts.nl/folder/folder.pdf">digitale folder</A>.
+        </div>
+
+        <a name="contact"></a>
+        <div class="bg-red-700 text-6xl lg:text-2xl py-2 px-3 text-white uppercase w-auto rounded mb-4">Contact</div>
+        <div class="mt-4 lg:px-6">
+             Heeft uw vragen en/of opmerkingen, klik dan hieronder voor ons contactformulier:
+        </div>
+        <div class="mb-2 font-bold lg:px-6"><a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeenmvJJ_1sKlA35jZUmFtJFiR5K1rWLR3yUfi9Rsm8LPdZ7g/viewform">Contactformulier</a>
+        </div>
+     
+    </main>
+</div>
+
+<script>
+    //Javascript to toggle the menu
+    // document.getElementById('nav-toggle').onclick = function () {
+    //     document.getElementById("nav-content").classList.toggle("hidden");
+    // }
+</script>
+
+</body>
+</html>

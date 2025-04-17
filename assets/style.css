@@ -1,0 +1,26 @@
+body {
+    background: url('/assets/wallpaper.jpg');
+    background-repeat: no-repeat;
+    background-position: 0 100px;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Signika', sans-serif;
+}
+
+@font-face {
+    font-family: 'Playlist-Script';
+    src:  url('Playlist-Script.ttf.woff') format('woff'),
+    url('Playlist-Script.ttf.svg#Playlist-Script') format('svg'),
+    url('Playlist-Script.ttf.eot'),
+    url('Playlist-Script.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+.logo-text {
+    font-family: 'Playlist-Script';
+    color: black;
+ }
+
+ .cryptedmail:after {
+    content: attr(data-name) "@" attr(data-domain) "." attr(data-tld); 
+  }
